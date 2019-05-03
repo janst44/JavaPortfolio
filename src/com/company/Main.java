@@ -3,19 +3,18 @@ package com.company;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 
 class A {
     private int myIndex;
     private String myString;
     private double myDouble;
-    private ArrayList myArray;
+    private char myChar;
 
-    public A(int myIndex, String myString, double myDouble, ArrayList myArray) {
+    public A(int myIndex, String myString, double myDouble, char myChar) {
         this.myIndex = myIndex;
         this.myString = myString;
         this.myDouble = myDouble;
-        this.myArray = myArray;
+        this.myChar = myChar;
     }
 
     public int getMyIndex() {
@@ -42,12 +41,12 @@ class A {
         this.myDouble = myDouble;
     }
 
-    public ArrayList getMyArray() {
-        return myArray;
+    public char getMyChar() {
+        return myChar;
     }
 
-    public void setMyArray(ArrayList myArray) {
-        this.myArray = myArray;
+    public void setMyChar(char myChar) {
+        this.myChar = myChar;
     }
 
     public void doCommonStuff(){
@@ -60,7 +59,7 @@ class A {
 }
 
 class B extends A {
-    public B(int myIndex, String myString, double myDouble, ArrayList myArray) {
+    public B(int myIndex, String myString, double myDouble, char myArray) {
         super(myIndex, myString, myDouble, myArray);
     }
 
@@ -73,7 +72,7 @@ class B extends A {
 
 class WrapClassA extends Throwable{ //Class to wrap A in order to prevent invalid indexes being returned, this may be helpful if A extends another class that is not Throwable
     private A a;
-    public WrapClassA(int myIndex, String myString, double myDouble, ArrayList myArray){
+    public WrapClassA(int myIndex, String myString, double myDouble, char myArray){
         a = new A(myIndex, myString, myDouble, myArray);
     }
 
@@ -144,17 +143,17 @@ public class Main{
         handlingExceptions(Except.UNCHECKED);
         handlingExceptions(Except.ERROR);
         //Methods, Encapsulation
-        A a = new A(1,"josh", 4.0, );
+        A a = new A(1,"josh", 4.0, 'a');
         a.doCommonStuff();
         // and Inheritance
-        B b = new B();
+        B b = new B(1,"josh", 4.0, 'a');
         b.doCommonStuff();
         //Static Method
         a.doMoreCommonStuff();
         b.doMoreCommonStuff();
         // could import a static method from A:
         //doMoreCommonStuff();
-        WrapClassA myWrappa = new WrapClassA();
+        WrapClassA myWrappa = new WrapClassA(1,"josh", 4.0, 'a');
         myWrappa.getMyIndex();
         System.out.print("Done!");
     }
