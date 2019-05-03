@@ -142,19 +142,23 @@ public class Main{
         handlingExceptions(Except.CHECKED);
         handlingExceptions(Except.UNCHECKED);
         handlingExceptions(Except.ERROR);
-        //Methods, Encapsulation
+
         A a = new A(1,"josh", 4.0, 'a');
         a.doCommonStuff();
-        // and Inheritance
+        //Inheritance
         B b = new B(1,"josh", 4.0, 'a');
+        System.out.print("Using Inheritance: ");
         b.doCommonStuff();
         //Static Method
+        System.out.println("Using Static Methods:");
         a.doMoreCommonStuff();
         b.doMoreCommonStuff();
-        // could import a static method from A:
+        //alternatively you could import a static method from A:
         //doMoreCommonStuff();
+        //Encapsulation
         WrapClassA myWrappa = new WrapClassA(1,"josh", 4.0, 'a');
-        myWrappa.getMyIndex();
+        System.out.println("Using encapsulation to get index: " + myWrappa.getMyIndex());
+
         System.out.print("Done!");
     }
 }
