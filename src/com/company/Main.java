@@ -11,10 +11,26 @@ class A {
     private char myChar;
 
     public A(int myIndex, String myString, double myDouble, char myChar) {
+        this(myString, myDouble, myChar);
         this.myIndex = myIndex;
+        System.out.println(this.myIndex + " ");
+    }
+
+    public A(String myString, double myDouble, char myChar) {
+        this(myDouble, myChar);
         this.myString = myString;
+        System.out.print(this.myString + " ");
+    }
+
+    public A(double myDouble, char myChar) {
+        this(myChar);
         this.myDouble = myDouble;
+        System.out.print(this.myDouble + " ");
+    }
+
+    public A(char myChar) {
         this.myChar = myChar;
+        System.out.print(this.myChar+ " ");
     }
 
     public int getMyIndex() {
@@ -80,6 +96,7 @@ class WrapClassA extends Throwable{ //Class to wrap A in order to prevent invali
         if (a.getMyIndex() < 0) throw new IndexOutOfBoundsException();
         return a.getMyIndex();
     }
+    //...
 }
 
 public class Main{
@@ -142,7 +159,7 @@ public class Main{
         handlingExceptions(Except.CHECKED);
         handlingExceptions(Except.UNCHECKED);
         handlingExceptions(Except.ERROR);
-
+        //Constructor Chaining test
         A a = new A(1,"josh", 4.0, 'a');
         a.doCommonStuff();
         //Inheritance
@@ -157,8 +174,7 @@ public class Main{
         //doMoreCommonStuff();
         //Encapsulation
         WrapClassA myWrappa = new WrapClassA(1,"josh", 4.0, 'a');
-        System.out.println("Using encapsulation to get index: " + myWrappa.getMyIndex());
-
+        System.out.println("Using encapsulation to get index: " + myWrappa.getMyIndex());://making a change
         System.out.print("Done!");
     }
 }
