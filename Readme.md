@@ -39,9 +39,9 @@ A basic understanding of software languages and software development.
     6. <b> TreeMap </b> sorted according to natural ordering of its keys(numerical, lexigraphical), more space efficient, unordered. 
      
 - Write an application to read a file with 10k lines of text, and output another file with the lines in sorted order (sample file)<br>
-    1. look at Main.java "sorted()"
+    1. look at Main.java "sort()"
 - Write an application to read a file with 10k lines of text, and output another file with the lines in reverse sorted order<br>
-    1. look at Main.java "reverse()"
+    1. look at Main.java "reverseSort()"
 - Write code to show exception handling including examples of checked, unchecked, and Error exceptions<br>
     1. look at Main.java "handlingExceptions()"
 - Write your own enum type.  Describe when you would use it.<br>
@@ -60,25 +60,40 @@ for example: two different classes that write a message to a file, one in XML, o
     4. Using a static utility class is NOT true composition but it can be called a derivation of it, "does it make sense to call this method if no object has been constructed?" and "will it stay the same across all instances/subinstances?" if so then it should be static.
        
 - Create and overload constructors -- Create a class that has 4 fields and construct the class with variations of one required field and the others are optional.  Use constructor chaining as an example.
-    1. 
+    1. See class 'A'
 - Apply encapsulation principles to a class -- Show an example of good encapsulation.  Show a bad example of encapsulation and explain why.  Additionally explain access modifiers and how they can be used as part of the class encapsulation.
-
+    1. See class 'C', in addition to creating or not creating methods that access an underlying class, access modifiers are another way of denying/allowing access to methods. See class 'D' for a bad example.
 - Determine the effect upon object references and primitive values when they are passed  into methods that change the values -- Create a method 3 parameters, one is parameter is pass by value, one is passed by reference and one with the keyword final.  Explain each and what the effects in side the method that changes each one.
-
+    1. References: passed by value
+    2. Primitives: passed by value
+    3. Finals: final doesn't guarantee that you can't change the value/state of a (nonprimitive) variable. Only that you can't reassign the reference to that object once initialized." Nonprimitive = reference (the only types in Java are primitive types and reference types). The value of a variable of reference type is a reference. Therefore, you can't reassign the reference = you can't change the value. 
+    Final Variable -> creates constant variable, Final Method -> Prevent Method Overriding, Final Classes -> Prevent Inheritance -- string references in java are immutable unlike most other ref's to objects. This means you cant change their internals, incorrectly in the String class, Java appears to provide methods that imply you can. However you may change the internals of mutable finals.
 - Write code to show how access modifiers work: private, protected, and public, talk about why you would use each of these.
-- Write code to show how virtual method invocation lets one implementation be swapped for another.
-- Write code that uses the instanceof operator and show how casting works.
-- Show how to override a method in a subclass, talk about plusses and minuses in doing so.
-- Show how to overload constructors and methods, talk about plusses and minuses in doing so.<br><br>
+    1. private: class access only
+    2. public: anyone can access
+    3. default/package: package can access, not outside though
+    4. protected: package access, but also inherited classes outside package
 
+- Write code to show how virtual method invocation lets one implementation be swapped for another.
+    1. See main function object 'e'
+- Write code that uses the instanceof operator and show how casting works.
+    1. Generally this would be used in a case where there are two possible things that object e could be. Then I would check which class it was to disambiguate the polymorphism involved and downcast appropriately before calling the method.
+- Show how to override a method in a subclass, talk about plusses and minuses in doing so.
+    1. The benefits are that i can use the parents implementation throught the super keyword, and then and more specific implementation, downside: outside this class other callers can only call my method, not my parents directly.
+- Show how to overload constructors and methods, talk about plusses and minuses in doing so.<br><br>
+    1. The benefits are I can have multiple method names which are the same, ensuring descriptive accuracy and communicating similar purpose. The downside is that you must be able to differentiate the overloaded method by some part of its signature, however this shouldn't be a problem because likely that will the the case when you need 2 methods which differ slightly. Otherwise you wouldn't need another method. Another downside might be the finite number of possible ways to overload.
 <b> Library: </b> <br>
 
 - Write an application that uses the slf4j logging library directly (can also choose log4j if you want)
 - Do the following:
 - configure the logging using an accepted department log statement format (see Application Specific Logging)
+    1. 
 - log at different logging levels (error, warn, info, debug), to see the effect of the default logging level setting
+    1.
 - turn on DEBUG in the logging config to show DEBUG output
+    1.
 - configure logging to go to both the console and a log file
+    1.
 
 
 <em>Note:  You are free to be creative and determine your own way to demonstrate the above tasks.  It would be great to talk over your plans with your manager!</em>
