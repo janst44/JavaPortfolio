@@ -1,5 +1,6 @@
 package com.company;
 
+<<<<<<< HEAD
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -103,6 +104,7 @@ class B extends A {
 
 class C extends Throwable{ //Class to wrap A in order to prevent invalid indexes being returned, this may be helpful if A extends another class that is not Throwable
     private A a;
+
     public C(int myIndex, String myString, double myDouble, char myChar){
         a = new A(myIndex, myString, myDouble, myChar);
     }
@@ -111,6 +113,7 @@ class C extends Throwable{ //Class to wrap A in order to prevent invalid indexes
         if (a.getMyIndex() < 0) throw new IndexOutOfBoundsException();
         return a.getMyIndex();
     }
+    //...
 }
 
 class D {//Bad example of a wrapper/encaspulation: methods are private including constructor, internal class is public.
@@ -260,7 +263,6 @@ public class Main{
             B b_cast = (B)e;//generally this would be used in a case where there are two possible things that object e could be. Then I would check which class it was to disambiguate the polymorphism involved and downcast appropriately before calling the method.
             System.out.println("Down cast an object");
         }
-
         System.out.print("Done!");
     }
 }
