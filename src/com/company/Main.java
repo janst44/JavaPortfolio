@@ -1,6 +1,5 @@
 package com.company;
 
-<<<<<<< HEAD
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
