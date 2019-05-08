@@ -1,5 +1,7 @@
 package com.company;
 
+import org.apache.log4j.Logger;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -66,7 +68,7 @@ class A {
         System.out.println("doing some common stuff...");
     }
 
-    protected static void doCommonStuff(int forOverloadingPrevMethod){//shows usage of a static method for common usage
+    static void doCommonStuff(int myInt){//shows usage of a static method for common usage
         System.out.println("More Common Stuff");
     }// can be called within this package or within subclasses of this class, not a great example
 
@@ -127,7 +129,7 @@ class D {//Bad example of a wrapper/encaspulation: methods are private including
 
 public class Main{
     public enum Except {CHECKED, UNCHECKED, ERROR}
-
+    final static Logger logger = Logger.getLogger(Main.class);
     public static void OOMError(){
         int num_chars = 1;
         String string = "a";
@@ -262,6 +264,16 @@ public class Main{
             B b_cast = (B)e;//generally this would be used in a case where there are two possible things that object e could be. Then I would check which class it was to disambiguate the polymorphism involved and downcast appropriately before calling the method.
             System.out.println("Down cast an object");
         }
+        if(logger.isDebugEnabled()){
+            logger.debug("This is debug : " + "debug");
+        }
+
+        if(logger.isInfoEnabled()){
+            logger.info("This is info : " + "info");
+        }
+        logger.warn("This is warn : " + "warn");
+        logger.error("This is error : " + "error");
+        logger.fatal("This is fatal : " + "fatal");
         System.out.print("Done!");
     }
 }
